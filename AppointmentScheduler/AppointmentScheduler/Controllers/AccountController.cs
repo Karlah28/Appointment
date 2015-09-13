@@ -12,7 +12,7 @@ using AppointmentScheduler.Models;
 
 namespace AppointmentScheduler.Controllers
 {
-    [Authorize]
+    [Authorize(Roles ="Administrator, Users, Manager")]
     public class AccountController : Controller
     {
         private ApplicationSignInManager _signInManager;
