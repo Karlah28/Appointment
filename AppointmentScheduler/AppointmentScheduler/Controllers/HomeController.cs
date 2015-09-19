@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace AppointmentScheduler.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : ApplicationBaseController
     {
         public ActionResult Index()
         {
@@ -20,6 +20,7 @@ namespace AppointmentScheduler.Controllers
             return View();
         }
 
+        [Authorize]
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";
