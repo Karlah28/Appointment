@@ -6,6 +6,7 @@ using System.Web.Mvc;
 
 namespace AppointmentScheduler.Controllers
 {
+    [RequireHttps]
     public class HomeController : ApplicationBaseController
     {
         public ActionResult Index()
