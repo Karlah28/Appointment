@@ -79,6 +79,43 @@ namespace AppointmentScheduler.Models
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+
+
+        //Additional attributes for the user entity
+        [Required]
+        [Display(Name = "First Name")]
+        public string FirstName { get; set; }
+
+        [Required]
+        [Display(Name = "Last Name")]
+        
+        public string LastName { get; set; }
+
+        [Required]
+        [DataType(DataType.PhoneNumber)]
+        [Display(Name = "Cell Phone")]
+        public string MobileNumber { get; set; }
+
+        [Required]
+        [Display(Name = "Street Address")]
+        public string Address { get; set; }
+
+        [Required]
+        [Display(Name = "City")]
+        public string City { get; set; }
+
+        [Required]
+        [Display(Name = "State")]
+        public string State { get; set; }
+
+        [Required]
+        [StringLength(5, ErrorMessage = "The {0} must be {2} characters long.", MinimumLength = 5)]
+        [Display(Name = "ZipCode")]
+        public string ZipCode { get; set; }
+
+        [Required]
+        [Display(Name = "Notes")]
+        public string Notes { get; set; }
     }
 
     public class ResetPasswordViewModel

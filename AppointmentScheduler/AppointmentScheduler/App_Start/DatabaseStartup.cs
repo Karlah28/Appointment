@@ -43,8 +43,8 @@ namespace AppointmentScheduler.App_Start
             string superAdminQuery = "INSERT INTO dbo.Roles(RoleId, Name) VALUES('SuperAdmin', '1')";
             string adminQuery = "INSERT INTO dbo.Roles(RoleId, Name) VALUES('Admin', '2')";
             string customerQuery = "INSERT INTO dbo.Roles(RoleId, Name) VALUES('Customer', '3')";
-            string providerQuery = "INSERT INTO dbo.Roles(RoleId, Name) VALUES('Provider', '2')";
-            string createUserQuery = "INSERT INTO db.Users(UserName, PasswordHash) VALUES ('Admin', 'AdminPassword')";
+            string providerQuery = "INSERT INTO dbo.Roles(RoleId, Name) VALUES('Provider', '4')";
+            string createUserQuery = "INSERT INTO dbo.Users(UserName, Email, PasswordHash) VALUES ('Admin', 'AdminPassword')";
 
            // var conn = connection.Open();
             //open connection
@@ -57,7 +57,7 @@ namespace AppointmentScheduler.App_Start
                     SqlCommand adminCmd = new SqlCommand(adminQuery, connection);
                     SqlCommand customerCmd = new SqlCommand(customerQuery, connection);
                     SqlCommand providerCmd = new SqlCommand(providerQuery, connection);
-                    SqlCommand createUserCmd = new SqlCommand(createUserQuery, connection);
+                   // SqlCommand createUserCmd = new SqlCommand(createUserQuery, connection);
 
 
                     //Execute command
@@ -65,8 +65,8 @@ namespace AppointmentScheduler.App_Start
                     adminCmd.ExecuteNonQuery();
                     customerCmd.ExecuteNonQuery();
                     providerCmd.ExecuteNonQuery();
-                    createUserCmd.ExecuteNonQuery();
-
+                    //createUserCmd.ExecuteNonQuery();
+                    connection.Close();
                     //close connection
                     //this.CloseConnection();
                 }
@@ -79,7 +79,7 @@ namespace AppointmentScheduler.App_Start
 
         private void CleanUpRoles()
         {
-            string query = "INSERT INTO dbo.Roles(RoleId, Name) VALUES('SuperAdmin', '1')";
+            string query = "DELETE from dbo.Roles";
             //var conn = connection.Open();
             //open connection
             connection.Open();
@@ -89,6 +89,8 @@ namespace AppointmentScheduler.App_Start
                
                 //Execute command
                 cmd.ExecuteNonQuery();
+
+                connection.Close();
  
             
         }
