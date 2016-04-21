@@ -16,10 +16,11 @@
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
-    <IISExpressSSLPort />
-    <IISExpressAnonymousAuthentication />
-    <IISExpressWindowsAuthentication />
-    <IISExpressUseClassicPipelineMode />
+    <IISExpressSSLPort>44300</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication>enabled</IISExpressAnonymousAuthentication>
+    <IISExpressWindowsAuthentication>disabled</IISExpressWindowsAuthentication>
+    <IISExpressUseClassicPipelineMode>false</IISExpressUseClassicPipelineMode>
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -40,6 +41,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="MySql.Data">
+      <HintPath>..\packages\MySql.Data.6.9.7\lib\net45\MySql.Data.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -154,6 +158,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\DatabaseStartup.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -164,6 +169,23 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201509100103425_MoveToTheCloud.cs" />
+    <Compile Include="Migrations\201509100103425_MoveToTheCloud.Designer.cs">
+      <DependentUpon>201509100103425_MoveToTheCloud.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201509120537184_ChangedIdentityTableNames.cs" />
+    <Compile Include="Migrations\201509120537184_ChangedIdentityTableNames.Designer.cs">
+      <DependentUpon>201509120537184_ChangedIdentityTableNames.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201509131744386_AddingCustomUserAttributes.cs" />
+    <Compile Include="Migrations\201509131744386_AddingCustomUserAttributes.Designer.cs">
+      <DependentUpon>201509131744386_AddingCustomUserAttributes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201509131918271_RenameUserTable.cs" />
+    <Compile Include="Migrations\201509131918271_RenameUserTable.Designer.cs">
+      <DependentUpon>201509131918271_RenameUserTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -236,6 +258,20 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201509100103425_MoveToTheCloud.resx">
+      <DependentUpon>201509100103425_MoveToTheCloud.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201509120537184_ChangedIdentityTableNames.resx">
+      <DependentUpon>201509120537184_ChangedIdentityTableNames.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201509131744386_AddingCustomUserAttributes.resx">
+      <DependentUpon>201509131744386_AddingCustomUserAttributes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201509131918271_RenameUserTable.resx">
+      <DependentUpon>201509131918271_RenameUserTable.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

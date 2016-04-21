@@ -54,9 +54,9 @@ namespace AppointmentScheduler
             //   consumerKey: "",
             //   consumerSecret: "");
 
-            //app.UseFacebookAuthentication(
-            //   appId: "",
-            //   appSecret: "");
+            app.UseFacebookAuthentication(
+               appId: "1716913275196219",
+               appSecret: "f277b6c2c2fa8bec627680e2b284a05c");
 
             //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
             //{
